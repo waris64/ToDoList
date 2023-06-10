@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>ToDoList</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #066acd;
+    }
+
+    input {
+
+      width: 67vw;
+      height: 41px;
+      border-radius: 0;
+      list-style: none;
+      background-color: #ecf0f1;
+      margin-left: 200px;
+      margin-top: 50px;
+      margin-right: 160px;
+      border: none;
+      text-transform: uppercase;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+      padding: 15px;
+    }
+
+    .fa-plus {
+      padding: 10px;
+      position: absolute;
+      right: 29px;
+      margin: 50px 152px;
+      font-size: 20px;
+      background-color: #ecf0f1;
+      border-radius: 0;
+    }
+
+
+    .fa-plus:hover {
+      color: #718093;
+    }
+
+
+    .fa-trash,
+    .fa-check {
+      padding: 6px;
+      float: right;
+      left: 93%;
+    }
+
+    .fa-trash:hover,
+    .fa-check:hover {
+      color: blue;
+    }
+
+
+    li {
+      border-radius: 0;
+      list-style: none;
+      margin-right: 218px;
+      padding: 12px;
+      margin-left: 199px;
+      background-color: white;
+      margin-top: 5px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: white;
+      display: flex;
+      justify-content: center;
+      margin-top: 70px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <h1>To Do List </h1>
+      <input type="text" id="w">
+      <i class="fa-solid fa-plus"></i>
+
+      <ul></ul>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script>
+    $('.fa-plus').click(function () {
+      $(document).ready(function () {
+        var wee = $('#w').val()
+        if (wee == '') {
+          alert('Input field is empty');
+        }
+        else {
+
+          let num = $('input').val();
+          $('ul').append('<li>' + num + '<i class="fa-sharp fa-solid fa-trash"> </i> <i class="fa-solid fa-check"></i></li>');
+
+          $('ul').on('click', '.fa-trash', function () {
+            $(this).parent('li').fadeOut(400);
+
+
+
+          });
+       
+           
+            $('ul').on('click', '.fa-check', function () {
+              $(this).css('color', '#4cd137');
+              $(this).siblings('span').css('text-decoration', 'line-through');
+            });
+
+      
+          $('input').val('').focusout();
+        }
+
+      });
+    })
+  </script>
+</body>
+
+</html>
